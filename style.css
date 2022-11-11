@@ -1,0 +1,221 @@
+@charset "UTF-8";
+
+*{margin: 0;padding: 0;}
+li{list-style: none;}
+a{text-decoration: none;
+color: #333;}
+
+.clearfix::after{
+    content: "";
+    clear: both;
+    display: block;
+}
+
+#wrap{width: 1000px; margin: auto;}
+
+/* header */
+#header{}
+#header h1{
+    float: left;
+    width: 110px;
+    padding: 10px 0 10px;
+}/* 형이 float이 있으면 동생도 줘야함(header.nav) */
+#header h1 a{}
+#header h1 a img{}
+
+#header .nav{float: right;}
+#header .nav ul li{
+    float: left;
+    width: 140px;
+    text-align: center;
+    background-color: #ddd;
+    position: relative;
+}
+#header .nav ul li a{ /* a는 inline 요소 */
+    display: block; 
+    /* 글자 영역 전체가 클릭되도록 */
+    /* 만약에 계속 inline요소이면 부모인 li의 높이가 안 바뀜 */
+    /* padding: 위 좌우 아래; */
+    padding: 24px 20px 20px;
+    transform: 0.3s ;
+}
+
+#header .nav ul li a:hover{
+    background-color: #ccc;
+}
+
+#header .nav ul li ul.submenu{
+    display: none;
+    position: absolute;
+    left: 0;top: 67px;
+    z-index: 10;
+}
+#header .nav ul li ul.submenu li{}
+#header .nav ul li ul.submenu li a{
+    padding: 18px;
+    background-color: #eee;
+}
+#header .nav ul li ul.submenu li a:hover{
+    background-color: #ccc;
+}
+
+/* banner */
+#banner{
+    overflow: hidden;
+}
+#banner .slideList{
+    width: 3000px;
+    position: relative; /* Jquary에서 애니메이트를 줬는데 position 값이 없어서 이동안함 ->그래서 postion: relative값을 줌 */
+}
+#banner .slideList .slideImg{
+    float: left;
+    width: 1000px;
+    position: relative;
+}
+#banner .slideList .slideImg h2{
+    position: absolute;
+    left: 50%;top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0,0,0,0.4);
+    color: white;
+    padding: 10px 30px;
+    border-radius: 25px;
+}
+#banner .slideList .slideImg img{width: 100%;}
+
+/* content1 */
+#content1{margin-top: 20px;}
+#content1 .title{
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+#content1 .desc{
+    font-size:14px;
+    margin-bottom: 15px;
+}
+#content1 .left{
+    float: left;width: 49%;
+    /* background-color: #f2f2f2;
+    background-image: url(images/bg1.jpg);
+    background-repeat: no-repeat;  
+    background-position: right 20px center ;
+    background-size: 80px; */
+    /* background: color image repeat position/ size; 
+    ->position 뒤에 사이즈 는 /하고 적어야 한다*/
+    background: #f2f2f2 url(images/bg1.jpg) no-repeat right 20px center/ 80px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#content1 .left .btn{
+    background: url(images/icon1.jpg) no-repeat left top;
+    background-size: 20px;
+    padding-left: 25px; 
+    /* 이미지와 글자 사이를 띄우는 법
+    백그라운드 이미지는 그대로 있고, 글자가 25px만큼 이동하는 것! */
+}
+#content1 .right{
+    float: right;width: 49%;
+    background: #f2f2f2 url(images/bg2.jpg) no-repeat right 20px center;
+    background-size: 80px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+#content1 .right .btn{
+    background: url(images/icon2.jpg) no-repeat left top;
+    background-size: 20px;
+    padding-left: 30px;
+}
+#content1 .right .btn em{
+    font-style: normal;
+    font-size: 13px;
+    color: #999;
+}
+
+/* 팝업 */
+
+.layer-bg{/* 팝업창의 뒷배경 */
+    display:none;
+    position: fixed;
+    left: 0;top: 0;width: 100%;height: 100%; 
+    background-color: rgba(0,0,0,0.8);
+}
+.layer-bg .layer{
+    position:absolute;
+    left: 50%;top: 50%; 
+    transform: translate(-50%,-50%);
+    width: 500px; height: 500px;
+    background-color: #fff;
+    padding: 20px;
+}
+.layer-bg .layer h2{}
+.layer-bg .layer .close{
+    position:absolute;
+    right: 20px;bottom: 20px;
+}
+
+.layer-bg .layer .video{
+    width: 400px;
+    position:absolute;
+    left: 50%;top: 50%; 
+    transform: translate(-50%,-50%);
+}
+
+.layer-bg .layer .video video{
+    width: 100%;
+}
+
+/* content2 */
+#content2{margin-top: 30px;}
+.tab_menu{}
+.tab_menu .tab_btn{}
+.tab_menu .tab_btn ul{}
+.tab_menu .tab_btn ul li{
+    float: left;margin-right: 15px;
+}
+.tab_menu .tab_btn ul li a{
+    display: block;
+    padding-bottom: 10px;
+    font-size: 24px;
+    color: #999;
+}
+.tab_menu .tab_btn ul li.active a{  /* 실시간 베스트에만 검정색 할때 */
+    color: #000;
+}
+.tab_cont{}
+.tab_cont .best{}
+.tab_cont div figure{
+    float: left; width: 32%;margin-right: 2%;
+}
+.tab_cont div figure:last-child{
+    margin-right: 0;
+}
+.tab_cont div figure img{
+    width: 100%;
+}
+.tab_cont div figure figcaption{}
+.tab_cont .view{}
+
+
+/* footer */
+#footer{
+    background-color: #202020;
+    margin-top: 30px;
+    padding: 20px;
+    }
+#footer h2{
+    width: 150px;
+    float: left;}
+#footer h2 img{width: 100%;}
+#footer .foot{float: right;}
+#footer .foot ul{padding-bottom: 10px;}
+#footer .foot ul li{
+    display: inline;}
+#footer .foot ul li a{
+    color: #fff;
+    padding-right: 10px;
+}
+#footer .foot address{
+    color: #ccc;
+    font-style: normal;
+    border-top:1px solid #ccc}
